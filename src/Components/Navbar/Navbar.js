@@ -1,22 +1,71 @@
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
+import React from "react";
+import "./Navbar.css";
 
-function ColorSchemesExample() {
+import { Nav, NavLink } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { LinkContainer } from "react-router-bootstrap";
+
+const Navbar = () => {
   return (
-    <>
-      <Navbar bg="primary" variant="dark">
-        <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link to="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
-          </Nav>
-        </Container>
-      </Navbar>
-    </>
+    <div className="NavbarContainer">
+      <ul>
+        <li>
+          <LinkContainer to="/">
+            <Nav.Link>
+              {" "}
+              <span style={{ fontSize: "23px", fontWeight: "900" }}>
+                Grocery Store
+              </span>
+            </Nav.Link>
+          </LinkContainer>
+        </li>
+      </ul>
+      <ul className="othersNav">
+        <li>
+          <LinkContainer to="/home">
+            <Nav.Link>
+              <span className="navText">Home</span>{" "}
+            </Nav.Link>
+          </LinkContainer>
+        </li>
+        <li>
+          <LinkContainer to="/Shop">
+            <Nav.Link>
+              {" "}
+              <span className="navText">Shop</span>
+            </Nav.Link>
+          </LinkContainer>
+        </li>
+        <li>
+          <LinkContainer to="/allItems">
+            <Nav.Link>
+              {" "}
+              <span className="navText">All Items</span>
+            </Nav.Link>
+          </LinkContainer>
+        </li>
+        <li>
+          <LinkContainer to="/addItems">
+            <Nav.Link>
+              {" "}
+              <span className="navText">Add Items</span>
+            </Nav.Link>
+          </LinkContainer>
+        </li>
+        <li>
+          <LinkContainer to="/logIn">
+            <Nav.Link>
+              {" "}
+              <span className="navText">Log in</span>
+            </Nav.Link>
+          </LinkContainer>
+        </li>
+        {/* <li>
+          <NavLink href="/"> <span style={{ fontSize: "20px", fontWeight: "500" }}></span></NavLink>
+        </li> */}
+      </ul>
+    </div>
   );
-}
+};
 
-export default ColorSchemesExample;
+export default Navbar;

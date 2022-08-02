@@ -1,0 +1,32 @@
+* {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+.navText {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.NavbarContainer {
+  margin-top: 9px;
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  padding: 14px;
+  background-color: aqua;
+}
+
+.othersNav {
+  display: flex;
+}
+
+.othersNav li {
+  margin-right: 30px;
+}
+
+.othersNav li a:hover {
+  background-color: #f0f27e;
+  color: white;
+  font-size: 21px;
+}

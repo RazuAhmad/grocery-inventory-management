@@ -1,12 +1,17 @@
 import React from "react";
+import { Route, Routes } from "react-router-dom";
 import Navbar from "../src/Components/Navbar/Navbar";
-import Banner from "./Components/Banner/Banner";
+import Home from "./Components/Home/Home";
+
 const App = () => {
   return (
     <>
       <Navbar />
       <br />
-      <Banner />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+      </Routes>
     </>
   );
 };
