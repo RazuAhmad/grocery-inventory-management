@@ -1,0 +1,16 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+
+  width: 49%;
+  /* justify-content: center;
+  text-align: center; */
+  margin: auto;
+  /* align-items: center; */
+}
+
+.formContainer input {
+  margin-bottom: 14px;
+  height: 40px;
+  border-radius: 8px;
+}

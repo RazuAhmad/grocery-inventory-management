@@ -45,7 +45,7 @@ const Navbar = () => {
           </LinkContainer>
         </li>
         <li>
-          <LinkContainer to="/addItems">
+          <LinkContainer to="/addItem">
             <Nav.Link>
               {" "}
               <span className="navText">Add Items</span>
