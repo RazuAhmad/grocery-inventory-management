@@ -1,0 +1,28 @@
+.divContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: #87de8b;
+  padding: 30px 70px;
+}
+
+.farmingDescription {
+  /* margin-left: 80px; */
+  margin-top: 200px;
+}
+
+.btnContainer button {
+  font-weight: 700;
+  border: none;
+  background: #000000;
+  color: #ffffff;
+
+  padding: 11px 9px;
+  height: 83px;
+  border-radius: 23px;
+}
+
+.btnContainer button:hover {
+  background-color: white;
+  color: black;
+  font-weight: 700;
+}

@@ -14,7 +14,7 @@ const ProductItemCompo = ({ productItem }) => {
       <p>{description}</p>
       <p>Price: {price}</p>
       <Link to={`/inventory/${_id}`}>
-        <button>Update</button>
+        <button>Manage Item</button>
       </Link>
       {/* <p>Available Amount: {quantity}</p>
       <p>Supplier Name: {supplierName}</p> */}

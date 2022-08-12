@@ -1,0 +1,11 @@
+.itemDetailsContainer {
+  /* width: 50%; */
+  /* height: 600px;
+   */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  text-align: center;
+  margin: auto;
+  box-shadow: 2px 2px 3px gray;
+  padding: 33px;
+}

@@ -1,0 +1,29 @@
+.whyUsContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: #7f8285f2;
+  padding: 47px;
+  /* height: 810px; */
+}
+
+.whyUsImg img {
+  margin-top: 20px;
+  width: 559px;
+  height: 693px;
+}
+
+.whyUsDescription {
+  margin-top: 34px;
+}
+
+.whyUsDescription button {
+  padding: 6px;
+  border-radius: 5px;
+  background: blue;
+  color: white;
+}
+
+.whyUsContainer button:hover {
+  background-color: red;
+  color: white;
+}

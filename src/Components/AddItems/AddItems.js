@@ -16,24 +16,34 @@ const AddItems = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="formContainer">
-      <input {...register("itemName")} placeholder=" Enter Product Item" />
+      <input
+        required
+        {...register("itemName")}
+        placeholder=" Enter Product Item"
+      />
 
       <input
+        required
         {...register("description")}
         placeholder=" Enter Product Description"
       />
 
       <input
+        required
         type="number"
         {...register("price")}
         placeholder=" Product Price"
       />
 
-      <input placeholder="Quantity" {...register("quantity")} />
+      <input required placeholder="Quantity" {...register("quantity")} />
 
-      <input placeholder="SupplierName" {...register("supplierName")} />
+      <input
+        required
+        placeholder="SupplierName"
+        {...register("supplierName")}
+      />
 
-      <input placeholder="Img URL" {...register("imgURL")} />
+      <input required placeholder="Img URL" {...register("imgURL")} />
 
       {/* <input {...register("itemName")} /> */}
 
