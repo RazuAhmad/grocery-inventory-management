@@ -37,7 +37,7 @@ const Navbar = () => {
           </LinkContainer>
         </li>
         <li>
-          <LinkContainer to="/allItems">
+          <LinkContainer to="/manageInventories">
             <Nav.Link>
               {" "}
               <span className="navText">All Items</span>

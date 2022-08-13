@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./ManageInventories.css";
 import SingleInventory from "../SingleInventory/SingleInventory";
+import AddItems from "../AddItems/AddItems";
 // import { useParams } from 'react-router-dom';
 
 const ManageInventories = () => {
@@ -15,8 +16,17 @@ const ManageInventories = () => {
   return (
     <div className="InventoriesContainer">
       {allInventories.map((pd) => (
-        <SingleInventory allInventories={pd} key={pd._id} />
+        <SingleInventory
+          setAllInventories={setAllInventories}
+          allItems={allInventories}
+          allInventories={pd}
+          key={pd._id}
+        />
       ))}
+
+      {/* <div>
+        <AddItems />
+      </div> */}
     </div>
   );
 };

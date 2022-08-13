@@ -4,7 +4,7 @@ import "./ProductItemCompo.css";
 const ProductItemCompo = ({ productItem }) => {
   const { _id, imgURL, itemName, price, quantity, supplierName, description } =
     productItem;
-  //   console.log(productItem);
+  // console.log(productItem);
   return (
     <div className="ProductContainer">
       <p>
