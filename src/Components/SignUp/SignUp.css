@@ -1,0 +1,15 @@
+.SignUpBtn {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  width: 30%;
+}
+
+.or {
+  font-size: 23px;
+}
+
+.insideBtn {
+  display: flex;
+  justify-content: flex-end;
+}
