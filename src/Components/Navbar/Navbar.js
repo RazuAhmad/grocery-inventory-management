@@ -4,8 +4,15 @@ import "./Navbar.css";
 import { Nav, NavLink } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
+import auth from "../Firebase/firebase.init";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { signOut } from "firebase/auth";
 
 const Navbar = () => {
+  const [user, loading, error] = useAuthState(auth);
+  const logout = () => {
+    signOut(auth);
+  };
   return (
     <div className="NavbarContainer">
       <ul>
@@ -60,6 +67,18 @@ const Navbar = () => {
             </Nav.Link>
           </LinkContainer>
         </li>
+        {user && (
+          <li>
+            <LinkContainer to="/logIn">
+              <Nav.Link>
+                {" "}
+                <span className="navText">
+                  <button onClick={() => logout()}>Log Out</button>
+                </span>
+              </Nav.Link>
+            </LinkContainer>
+          </li>
+        )}
         {/* <li>
           <NavLink href="/"> <span style={{ fontSize: "20px", fontWeight: "500" }}></span></NavLink>
         </li> */}

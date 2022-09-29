@@ -2,22 +2,25 @@ import React, { useRef, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
+  useAuthState,
   useCreateUserWithEmailAndPassword,
   useSignInWithGithub,
   useSignInWithGoogle,
+  useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import "./SignUp.css";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import googleIcon from "../LogIn/logInIcon/google-icon.png";
 import github from "../LogIn/logInIcon/github sign in.png";
 import auth from "../Firebase/firebase.init";
 import { sendEmailVerification } from "firebase/auth";
+
 const SignUp = () => {
   const [agree, setAgree] = useState(false);
 
-  const [createUserWithEmailAndPassword, user, loading, error] =
+  const [createUserWithEmailAndPassword, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
@@ -25,29 +28,49 @@ const SignUp = () => {
 
   const [signInWithGithub, githubUser, githubLoading, githubError] =
     useSignInWithGithub(auth);
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+  const [user, authError] = useAuthState(auth);
 
   const emailRef = useRef();
   const passwordRef = useRef();
   const nameRef = useRef();
+  const navigate = useNavigate();
 
-  const handleForm = (e) => {
+  const handleForm = async (e) => {
     e.preventDefault();
-
+    const name = nameRef?.current?.value;
     const email = emailRef?.current?.value;
     const password = passwordRef?.current?.value;
     console.log(email, password);
-    if (sendEmailVerification) {
-      createUserWithEmailAndPassword(email, password);
-    }
-    if (user) {
-      console.log(user);
-      toast("Successfully signed up");
-    }
+    // if (sendEmailVerification) {
+
+    // }
+
+    await createUserWithEmailAndPassword(email, password);
+    // await updateProfile({ displayName: name });
+    // navigate("/home");
+
     console.log(error);
   };
+  if (user) {
+    console.log(user);
+    toast("Successfully signed up");
+  }
+  const showPassword = (e) => {
+    let x = passwordRef.current;
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  };
 
-  console.log("googleSignIn", googleUser);
-  console.log("Github sign in user", githubUser);
+  const isChecked = (e) => {
+    setAgree(e.target.checked);
+  };
+
+  // console.log("googleSignIn", googleUser);
+  // console.log("Github sign in user", githubUser);
   return (
     <>
       <ToastContainer />
@@ -87,17 +110,18 @@ const SignUp = () => {
             type="password"
             placeholder="Password"
           />
+          <input type="checkbox" onClick={showPassword} />
+          Show Password
         </Form.Group>
+        {error ? "" : <p>error :{error.message}</p>}
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check
-            onClick={() => setAgree(!agree)}
+            onClick={isChecked}
             type="checkbox"
             className={agree ? "text-primary" : "text-danger"}
             label="Accept our all terms and conditions"
           />
         </Form.Group>
-
-        {error && <p>{error}</p>}
 
         <Button
           disabled={!agree}

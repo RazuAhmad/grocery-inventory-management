@@ -6,6 +6,7 @@ import AllItems from "./Components/AllItems/AllItems";
 import Home from "./Components/Home/Home";
 import LogIn from "./Components/LogIn/LogIn";
 import ManageInventories from "./Components/ManageInventories/ManageInventories";
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import ProductDetails from "./Components/ProductDetails/ProductDetails";
 import SignUp from "./Components/SignUp/SignUp";
 
@@ -18,7 +19,14 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/addItem" element={<AddItems />} />
+        <Route
+          path="/addItem"
+          element={
+            <PrivateRoute>
+              <AddItems />
+            </PrivateRoute>
+          }
+        />
         <Route path="/inventory/:id" element={<ProductDetails />} />
         {/* <Route path="/manageInventories" element={<AllItems />} /> */}
         <Route path="/logIn" element={<LogIn />} />
